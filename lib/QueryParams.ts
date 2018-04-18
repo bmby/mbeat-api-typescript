@@ -10,9 +10,6 @@ export class QueryParams {
         'page': null,
         'pageSize': null,
         'keywords': null,
-        'propertyId': null,
-        'customerId': null, 
-        'queryId': null
     }
 
     get keywords(): string {
@@ -20,27 +17,6 @@ export class QueryParams {
     }
     set keywords(value: string) {
         this._params['keywords'] = value;
-    }
-
-    get queryId(): string {
-        return this._params['queryId'];
-    }
-    set queryId(value: string) {
-        this._params['queryId'] = value;
-    }
-
-    get propertyId(): string {
-        return this._params['propertyId'];
-    }
-    set propertyId(value: string) {
-        this._params['propertyId'] = value;
-    }
-
-    get customerId(): string {
-        return this._params['customerId'];
-    }
-    set customerId(value: string) {
-        this._params['customerId'] = value;
     }
 
     get sortBy(): string {

@@ -13,3 +13,10 @@ export enum FormElementType  {
     Option = 4,
     Date = 5
 }
+
+export enum ElectoralUserType {
+    Unknown = 0,
+    Both = 1,
+    Operator = 2,
+    Observer = 3
+}

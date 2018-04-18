@@ -28,6 +28,8 @@ export class FormElementResult extends BmbyEntity {
 }
 
 export class ElectionSurveyResult extends BmbyEntity {
+    private _form:Array<FormElementResult> = new Array<FormElementResult>();
+
     constructor() {
         super();
 
@@ -35,6 +37,23 @@ export class ElectionSurveyResult extends BmbyEntity {
             "clientId": 0,
             "form": []
         }
+    }
+
+    get data(): any {
+        this._data['form'] = [];
+        this._form.forEach(e => this._data['form'].push(e.data))
+
+        return this._data;
+    } 
+    set data(value: any) {
+        this._data = value;
+        this._form = new Array<FormElementResult>();
+        
+        this._data['form'].forEach(d => {
+            let formElemnt = new FormElementResult();
+            formElemnt.data = d;
+            this._form.push(formElemnt);
+        });
     }
 
     get clientId(): number {
@@ -45,9 +64,9 @@ export class ElectionSurveyResult extends BmbyEntity {
     }
 
     get form(): Array<FormElementResult> {
-        return this._data['form']
+        return this._form;
     }
     set form(value: Array<FormElementResult>) {
-        this._data['form'] = value;
+        this._form = value;
     }
 }

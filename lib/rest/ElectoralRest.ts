@@ -7,8 +7,25 @@ import { ElectionVoter } from '../entities/ElectionVoter';
 import { ElectoralAlert } from '../entities/ElectoralAlert';
 import { ElectionSummary } from '../entities/ElectionSummary';
 import { ElectionSurveyResult } from '../entities/ElectionSurvayResult';
+import { ElectoralUser } from '../entities/ElectoralUser';
 
 export class ElectoralRest extends BmbyRest {
+    getUser(): Promise<ElectoralUser> {
+        let result = this.get("/electoral/user", true);
+
+        return new Promise<ElectoralUser>((resolve, reject) => {
+            result
+            .then(function(response) {
+                var user = new ElectoralUser();
+                user.data = response.data;
+                resolve(user);
+            })
+            .catch(function(response){
+                reject(response);
+            });
+        });
+    }
+
     nextDial(): Promise<ElectionSurvey> {
         let result = this.get("/electoral/nextdial", true);
 

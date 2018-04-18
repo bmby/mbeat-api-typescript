@@ -8,8 +8,8 @@ export class ElectionSummary extends BmbyEntity {
             "ballotBoxNumber": 0,
             "totalVoted": 0,
             "totalVoters": 0,
-            "totlaVotedPercentage": 0,
-            "totlaVotedColor": "blue",
+            "totalVotedPercentage": 0,
+            "totalVotedColor": "blue",
             "totalSupportersPercentage": 0,
             "totalSupportersColor": "green"
         }
@@ -36,18 +36,18 @@ export class ElectionSummary extends BmbyEntity {
         this._data["totalVoters"] = value;
     }
 
-    get totlaVotedPercentage(): number {
-        return this._data["totlaVotedPercentage"];
+    get totalVotedPercentage(): number {
+        return this._data["totalVotedPercentage"];
     }
-    set totlaVotedPercentage(value: number) {
-        this._data["totlaVotedPercentage"] = value;
+    set totalVotedPercentage(value: number) {
+        this._data["totalVotedPercentage"] = value;
     }
 
-    get totlaVotedColor(): string {
-        return this._data["totlaVotedColor"];
+    get totalVotedColor(): string {
+        return this._data["totalVotedColor"];
     }
-    set totlaVotedColor(value: string) {
-        this._data["totlaVotedColor"] = value;
+    set totalVotedColor(value: string) {
+        this._data["totalVotedColor"] = value;
     }
 
     get totalSupportersPercentage(): number {

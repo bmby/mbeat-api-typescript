@@ -6,4 +6,4 @@ export * from './ElectionSummary';
 export * from './ElectionVoter';
 export * from './ElectoralAlert';
 export * from './ElectionSurvayResult';
-
+export * from './ElectoralUser';

@@ -3,6 +3,8 @@ import { SurvayOpinion } from "../Enumerations";
 import { FormElement } from "./FormElement";
 
 export class ElectionSurvey extends BmbyEntity {
+    private _form:Array<FormElement> = new Array<FormElement>();
+
     constructor() {
         super();
 
@@ -19,6 +21,26 @@ export class ElectionSurvey extends BmbyEntity {
             "age": 0,
             "form": []
         }
+    }
+
+    get data(): any {
+        this._data['form'] = [];
+
+        this._form.forEach(e => this._data['form'].push(e.data))
+
+        return this._data;
+    } 
+    set data(value: any) {
+        this._data = value;
+
+        this._data['opinion'] = SurvayOpinion[this._data['opinion']];    
+        this._form = new Array<FormElement>();
+        
+        this._data['form'].forEach(d => {
+            let formElemnt = new FormElement();
+            formElemnt.data = d;
+            this._form.push(formElemnt);
+        });
     }
 
     get clientId(): number {
@@ -92,9 +114,9 @@ export class ElectionSurvey extends BmbyEntity {
     }
 
     get form(): Array<FormElement> {
-        return this._data['form']
+        return this._form
     }
     set form(value: Array<FormElement>) {
-        this._data['form'] = value;
+        this._form = value;
     }
 }
