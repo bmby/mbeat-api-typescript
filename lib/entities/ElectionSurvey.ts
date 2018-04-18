@@ -2,25 +2,7 @@ import { BmbyEntity } from "./BmbyEntity";
 import { SurvayOpinion } from "../Enumerations";
 import { FormElement } from "./FormElement";
 
-let format = {
-    "form": [
-        {
-            "fieldName": "field_name",
-            "question": "shdshdsdsd sdsds",
-            "type": "text/single/multi/option/date",
-            "value": "value",
-            "options": [
-                {
-                    "key": "",
-                    "displayName": "display name"
-                }
-            ],
-            "required": "true/false"
-        }
-    ]
-}
-
-export class Survay extends BmbyEntity {
+export class ElectionSurvey extends BmbyEntity {
     constructor() {
         super();
 
