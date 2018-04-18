@@ -13,6 +13,14 @@ export class ElectoralUser extends BmbyEntity {
         }
     }
 
+    get data(): any {
+        return this._data;
+    } 
+    set data(value: any) {
+        this._data = value;
+        this._data['type'] = ElectoralUserType[this._data['type']];    
+    }
+
     get type(): ElectoralUserType {
         return this._data["type"];
     }

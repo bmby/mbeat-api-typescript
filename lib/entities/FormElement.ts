@@ -3,6 +3,8 @@ import { SurvayOpinion, FormElementType } from "../Enumerations";
 import { ListItem } from "./ListItem";
 
 export class FormElement extends BmbyEntity {
+    private _options:Array<ListItem>  = new Array<ListItem>();
+
     constructor() {
         super();
 
@@ -14,6 +16,23 @@ export class FormElement extends BmbyEntity {
             "options": [],
             "required": false
         }
+    }
+
+    get data(): any {
+        this._data['options'] = [];
+        this._options.forEach(e => this._data['options'].push(e.data))
+
+        return this._data;
+    } 
+    set data(value: any) {
+        this._data = value;
+        this._data['type'] = FormElementType[this._data['type']];    
+                
+        this._data['form'].forEach(d => {
+            let formElemnt = new ListItem();
+            formElemnt.data = d;
+            this._options.push(formElemnt);
+        });
     }
 
     get type(): FormElementType {

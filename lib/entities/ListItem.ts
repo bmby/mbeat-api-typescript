@@ -6,7 +6,7 @@ export class ListItem extends BmbyEntity {
 
         this._data = {
             'key': '',
-            'display_name': '',
+            'displayName': '',
             'description': '',
             'tags': '',
             'avatar': '',
@@ -20,10 +20,10 @@ export class ListItem extends BmbyEntity {
     }
 
     get displayName(): string {
-        return this._data['display_name'];
+        return this._data['displayName'];
     }
     set displayName(value: string) {
-        this._data['display_name'] = value;
+        this._data['displayName'] = value;
     }
 
     get description(): string {
