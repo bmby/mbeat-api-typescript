@@ -1,0 +1,38 @@
+{
+  "name": "@bmby/mbeat-api-typescript",
+  "version": "1.0.0",
+  "description": "Typescript library for BMBY Mbeat API",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "gulp scripts",
+    "prepublishOnly": "tsc -p ./ --outDir dist/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bmby/bmby-api-typescript.git"
+  },
+  "keywords": [
+    "BMBY",
+    "Mbeat",
+    "API"
+  ],
+  "author": "BMBY Software Services Ltd.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bmby/bmby-api-typescript/issues"
+  },
+  "homepage": "https://github.com/bmby/bmby-api-typescript#readme",
+  "devDependencies": {
+    "@types/core-js": "^0.9.46",
+    "@types/node": "^9.4.6",
+    "axios": "^0.16.2",
+    "base-64": "^0.1.0",
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^3.2.4",
+    "karma-typescript": "^3.0.12",
+    "typescript": "^2.7.2",
+    "utf8": "^3.0.0"
+  },
+  "dependencies": {}
+}

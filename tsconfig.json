@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "outDir": "dist",
+        "declaration": true,
+        "declarationDir": "dist",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "noEmitHelpers": false,
+        "noEmitOnError": true,
+        "lib": [
+            "es5",
+            "es2015"
+        ]
+    },
+    "include": [
+        "lib/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.d.ts"
+    ]
+}

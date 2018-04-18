@@ -1,0 +1,5 @@
+/.idea
+/lib
+/.vscode
+/dist/test.js
+/dist/test.d.ts

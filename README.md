@@ -1,0 +1,1 @@
+# bmby-api-typescript
