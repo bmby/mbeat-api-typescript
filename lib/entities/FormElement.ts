@@ -28,7 +28,7 @@ export class FormElement extends BmbyEntity {
         this._data = value;
         this._data['type'] = FormElementType[this._data['type']];    
                 
-        this._data['form'].forEach(d => {
+        this._data['options'].forEach(d => {
             let formElemnt = new ListItem();
             formElemnt.data = d;
             this._options.push(formElemnt);

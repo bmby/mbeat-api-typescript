@@ -35,7 +35,7 @@ export class ElectionSurvey extends BmbyEntity {
 
         this._data['opinion'] = SurvayOpinion[this._data['opinion']];    
         this._form = new Array<FormElement>();
-        
+
         this._data['form'].forEach(d => {
             let formElemnt = new FormElement();
             formElemnt.data = d;

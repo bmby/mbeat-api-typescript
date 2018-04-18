@@ -58,24 +58,22 @@ export class ElectoralRest extends BmbyRest {
         });
     }
 
-    listVoters(params: QueryParams): Promise<PaginatedList<ElectionVoter>> {
+    listVoters(params: QueryParams): Promise<Array<ElectionVoter>> {
         let result = this.get("/electoral/voters" + params.queryString(), true);
 
-        return new Promise<PaginatedList<ElectionVoter>>((resolve, reject) => {
+        return new Promise<Array<ElectionVoter>>((resolve, reject) => {
             result
             .then(function(response) {
                 try {
                     let voters = new Array<ElectionVoter>();
                     
-                    for (let i in response.data.items) {
+                    for (let i in response.data) {
                         let voter = new ElectionVoter();
-                        voter.data = response.data.items[i];
+                        voter.data = response.data[i];
                         voters.push(voter);
                     }
 
-                    response.data.items = voters;
-
-                    resolve(new PaginatedList<ElectionVoter>(response.data));
+                    resolve(voters);
                 } catch(ex) {
                     reject(response);
                 }
@@ -86,24 +84,22 @@ export class ElectoralRest extends BmbyRest {
         });
     }
 
-    listAlerts(params: QueryParams): Promise<PaginatedList<ElectoralAlert>> {
+    listAlerts(params: QueryParams): Promise<Array<ElectoralAlert>> {
         let result = this.get("/electoral/listalerts" + params.queryString(), true);
 
-        return new Promise<PaginatedList<ElectoralAlert>>((resolve, reject) => {
+        return new Promise<Array<ElectoralAlert>>((resolve, reject) => {
             result
             .then(function(response) {
                 try {
                     let alerts = new Array<ElectoralAlert>();
                     
-                    for (let i in response.data.items) {
+                    for (let i in response.data) {
                         let alert = new ElectoralAlert();
-                        alert.data = response.data.items[i];
+                        alert.data = response.data[i];
                         alerts.push(alert);
                     }
 
-                    response.data.items = alerts;
-
-                    resolve(new PaginatedList<ElectoralAlert>(response.data));
+                    resolve(alerts);
                 } catch(ex) {
                     reject(response);
                 }
