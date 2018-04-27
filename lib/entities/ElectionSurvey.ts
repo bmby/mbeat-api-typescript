@@ -79,10 +79,10 @@ export class ElectionSurvey extends BmbyEntity {
     }
 
     get phoneNumbers(): Array<string> {
-        return this._data["ballotBox"];
+        return this._data["phoneNumbers"];
     }
     set phoneNumbers(value: Array<string>) {
-        this._data["ballotBox"] = value;
+        this._data["phoneNumbers"] = value;
     }
 
     get firstName(): string {
