@@ -2,8 +2,35 @@ import { BmbyEntity } from "./BmbyEntity";
 import { SurvayOpinion } from "../Enumerations";
 import { FormElement } from "./FormElement";
 
+export class Phone extends BmbyEntity
+{
+    constructor() {
+        super();
+
+        this._data = {
+            "label": "",
+            "number": ""
+        }
+    }
+
+    get label(): string {
+        return this._data["label"];
+    }
+    set label(value: string) {
+        this._data["label"] = value;
+    }
+
+    get number(): string {
+        return this._data["number"];
+    }
+    set number(value: string) {
+        this._data["number"] = value;
+    }
+}
+
 export class ElectionSurvey extends BmbyEntity {
     private _form:Array<FormElement> = new Array<FormElement>();
+    private _phoneNumbers:Array<Phone> = new Array<Phone>();
 
     constructor() {
         super();
@@ -25,8 +52,10 @@ export class ElectionSurvey extends BmbyEntity {
 
     get data(): any {
         this._data['form'] = [];
+        this._data['phoneNumbers'] = [];
 
         this._form.forEach(e => this._data['form'].push(e.data))
+        this._phoneNumbers.forEach(e => this._data['phoneNumbers'].push(e.data))
 
         return this._data;
     } 
@@ -40,6 +69,12 @@ export class ElectionSurvey extends BmbyEntity {
             let formElemnt = new FormElement();
             formElemnt.data = d;
             this._form.push(formElemnt);
+        });
+
+        this._data['phoneNumbers'].forEach(d => {
+            let phone = new Phone();
+            phone.data = d;
+            this._phoneNumbers.push(phone);
         });
     }
 
