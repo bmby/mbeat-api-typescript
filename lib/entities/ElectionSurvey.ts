@@ -113,11 +113,11 @@ export class ElectionSurvey extends BmbyEntity {
         this._data["ballotBox"] = value;
     }
 
-    get phoneNumbers(): Array<string> {
-        return this._data["phoneNumbers"];
+    get phoneNumbers(): Array<Phone> {
+        return this._phoneNumbers;
     }
-    set phoneNumbers(value: Array<string>) {
-        this._data["phoneNumbers"] = value;
+    set phoneNumbers(value: Array<Phone>) {
+        this._phoneNumbers = value;
     }
 
     get firstName(): string {
