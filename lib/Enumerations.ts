@@ -20,3 +20,17 @@ export enum ElectoralUserType {
     Operator = 2,
     Observer = 3
 }
+
+export enum CrmType {
+    Email = 0,
+    Task = 1,
+    Appointment = 2,
+    Comment = 3,
+    SMS = 4,
+    ServiceRequest = 5
+}
+
+export enum UnitType {
+    Client = 0,
+    Owner = 1
+}
