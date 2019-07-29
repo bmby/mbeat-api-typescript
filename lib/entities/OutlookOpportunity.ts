@@ -10,6 +10,7 @@ export class OutlookOpportunity extends BmbyEntity {
             "ammount": 0,
             "status": "",
             "description": "",
+            "products": ""
         }
     }
 
@@ -51,5 +52,13 @@ export class OutlookOpportunity extends BmbyEntity {
 
     set description(value: string) {
         this._data["description"] = value;
+    }
+
+    get products(): string {
+        return this._data["products"];
+    }
+
+    set products(value: string) {
+        this._data["products"] = value;
     }
 }
