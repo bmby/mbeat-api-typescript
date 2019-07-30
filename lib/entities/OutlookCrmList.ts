@@ -9,7 +9,9 @@ export class OutlookCrmList extends BmbyEntity {
             "date": "",
             "type": "",
             "status": "",
-            "description": ""
+            "description": "",
+            "message": "",
+            "owner": ""
         }
     }
     get date(): Date {
@@ -42,6 +44,22 @@ export class OutlookCrmList extends BmbyEntity {
 
     set description(value: string) {
         this._data["description"] = value;
+    }
+
+    get message(): string {
+        return this._data["message"];
+    }
+
+    set message(value: string) {
+        this._data["message"] = value;
+    }
+
+    get owner(): string {
+        return this._data["owner"];
+    }
+
+    set owner(value: string) {
+        this._data["owner"] = value;
     }
 
     set data(value: any) {

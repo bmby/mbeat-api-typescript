@@ -16,6 +16,7 @@ export class OutlookClient extends BmbyEntity {
             "phoneHome": "",
             "phoneMobile": "",
             "email": "",
+            "salesperson": "",
             "interestedIn": "",
             "remark": "",
             "stageInSale": "",
@@ -25,7 +26,7 @@ export class OutlookClient extends BmbyEntity {
             "bmbyUnitId": "",
             "unitType": "",
             "opportunities": [],
-            "crmList": [],
+            "crmList": []
         }
     }
 
@@ -102,6 +103,15 @@ export class OutlookClient extends BmbyEntity {
         return this._data["email"];
     }
 
+    set salesperson(value: string) {
+        this._data["salesperson"] = value;
+    }
+
+    get salesperson(): string {
+        return this._data["salesperson"];
+    }
+
+
     set interestedIn(value: string) {
         this._data["interestedIn"] = value;
     }
@@ -165,24 +175,48 @@ export class OutlookClient extends BmbyEntity {
 
     get unitType(): UnitType {
         return this._data["unitType"];
-    }    set data(value: any) {        this._data = value;        this._data['unitType'] = UnitType[this._data['unitType']];        this._opportunities = new Array<OutlookOpportunity>();        if (value['opportunities'] != undefined && value['opportunities'][0] != undefined) {
+    }
+
+    set data(value: any) {
+        this._data = value;
+
+        this._data['unitType'] = UnitType[this._data['unitType']];
+
+        this._opportunities = new Array<OutlookOpportunity>();
+
+        if (value['opportunities'] != undefined && value['opportunities'][0] != undefined) {
             for (let i in value['opportunities']) {
                 let outlookOpportunity = new OutlookOpportunity();
                 outlookOpportunity.data = value['opportunities'][i];
                 this._opportunities.push(outlookOpportunity);
             }
-        }        this._crmList = new Array<OutlookCrmList>();        if (value['crmList'] != undefined && value['crmList'][0] != undefined) {
+        }
+
+        this._crmList = new Array<OutlookCrmList>();
+
+        if (value['crmList'] != undefined && value['crmList'][0] != undefined) {
             for (let i in value['crmList']) {
                 let outlookCrm = new OutlookCrmList();
                 outlookCrm.data = value['crmList'][i];
                 this._crmList.push(outlookCrm);
             }
-        }    }    get data(): any {        this._data['unitType'] = UnitType[this._data['unitType']];        this._data['opportunities'] = [];
+        }
+    }
+
+    get data(): any {
+
+        this._data['unitType'] = UnitType[this._data['unitType']];
+
+        this._data['opportunities'] = [];
         this._data['crmList'] = [];
 
         for (let i in this._opportunities) {
             this._data['opportunities'].push(this._opportunities[i].data);
-        }        for (let i in this._crmList) {
+        }
+        for (let i in this._crmList) {
             this._data['crmList'].push(this._crmList[i].data);
-        }        return this._data;    }
+        }
+
+        return this._data;
+    }
 }
